@@ -1,0 +1,17 @@
+version: '2'
+services:
+  database:
+    build: db
+    restart: always
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_PASSWORD: password
+  app:
+    build: app
+    depends_on: [database]
+    links:
+      - database
+    ports:
+      - "5000:5000"
+    environment:
+      SQLALCHEMY_DATABASE_URI: 'postgresql://postgres:password@database:5432/testdb'

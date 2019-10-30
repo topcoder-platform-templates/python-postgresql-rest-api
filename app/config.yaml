@@ -1,0 +1,2 @@
+#url: 'mysql://root@localhost:3306/sample_db?charset=utf8mb4'
+SQLALCHEMY_DATABASE_URI: 'postgresql://postgres@192.168.0.18:5433/testdb'
